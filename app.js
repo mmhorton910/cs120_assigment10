@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.send(`
     <html>
       <body>
-        <h1>Place or Zip Code Lookup</h1>
+        <h1 style="font-family: sans-serif">Place or Zip Code Lookup</h1>
         <form action="/process" method="post">
           <input type="text" name="query" placeholder="Enter a place or zip code" required>
           <button type="submit">Submit</button>
@@ -30,7 +30,7 @@ app.post('/process', async (req, res) => {
   let filter;
 
   if (/^\d/.test(query)) {
-    filter = { zips: query };
+    filter = { zip_codes: query };
   } else {
     filter = { place_name: query };
   }
@@ -45,10 +45,10 @@ app.post('/process', async (req, res) => {
       res.send(`
         <html>
           <body>
-            <h1>Results</h1>
-            <p>Place: ${result.place_name}</p>
-            <p>Zip Codes: ${result.zip_codes.join(', ')}</p>
-            <a href="/">Go back</a>
+            <h1 style="font-family: sans-serif">Results</h1>
+            <p style="font-family: sans-serif">Place: ${result.place_name}</p>
+            <p style="font-family: sans-serif">Zip Codes: ${result.zip_codes.join(', ')}</p>
+            <a href="/" style="font-family: sans-serif">Go back</a>
           </body>
         </html>
       `);
@@ -56,8 +56,8 @@ app.post('/process', async (req, res) => {
       res.send(`
         <html>
           <body>
-            <h1>No results found</h1>
-            <a href="/">Go back</a>
+            <h1 style="font-family: sans-serif">No results found</h1>
+            <a href="/" style="font-family: sans-serif">Go back</a>
           </body>
         </html>
       `);
