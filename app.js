@@ -1,7 +1,7 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const uri = 'mongodb+srv://cs120:webprogramming@cluster0.oxuwn4j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Adjust as necessary for your environment
 const client = new MongoClient(uri, {
